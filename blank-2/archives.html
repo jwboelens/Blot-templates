@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  {{> head}} 
+  <body>
+  
+  {{> header}}
+  
+  <archives>
+  
+    <h1>Tags</h1>
+  	{{> alltags}}
+    
+    <hr>
+    
+    <h1>Search</h1>
+    <p>
+    <form action='/search' style="margin:-0.66em 0 1em">
+          <input placeholder="Type your search..." value="{{#query}}{{query}}{{/query}}" name="q" id="search" type="text" />
+          <input type="submit" value="Search"/>
+        </form>
+    </p>
+
+          {{#query}}
+            {{^entries}}
+            <p>Sorry, nothing found for “{{query}}”</p>
+            {{/entries}}
+          {{/query}}
+          
+    <hr>
+    
+	<ul>
+    {{#archives}} {{#months}}
+    <h1>{{month}} {{year}}</h1>
+    
+    {{#entries}}
+    <li>
+    <a href="{{{url}}}">{{title}}</a>
+    </li>
+    {{/entries}}
+    
+    {{/months}}{{/archives}}
+	</ul>
+    
+  </archives>
+
+  </body>
+</html>

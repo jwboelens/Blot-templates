@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  {{> head}}
+  <body>
+
+    {{> header}}
+    
+    <article>
+    
+    {{#entry}}
+    
+    <h1>
+    	<a href="{{{url}}}">
+    		{{title}}
+        </a>
+    </h1>
+    
+    <date>
+      {{#date}}
+      	{{date}}     
+      {{/date}}
+    </date>
+    
+    {{{html}}}
+
+      <tags>
+        {{#tags}}
+        <a href="/tagged/{{slug}}">{{name}}</a>
+        {{/tags}}
+      </tags>
+        
+    {{/entry}}
+    
+    </article>
+
+    {{> pluginHTML}}        
+
+    {{> footer}}    
+    
+  </body>
+</html>
